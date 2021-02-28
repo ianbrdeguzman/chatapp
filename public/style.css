@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    color: #f5f5f5;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
+.login-content {
+    width: 100vw;
+    max-width: 500px;
+    height: 100vh;
+    max-height: 600px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+.login-content header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgb(143, 70, 216);
+}
+.login-content main {
+    width: 100%;
+    height: 500px;
+    font-size: 3rem;
+    padding: 0 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(168, 80, 255);
+}
+.login-content main form {
+    width: 50%;
+    font-size: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.login-content main form input,
+.login-content main form select,
+.login-content main form button {
+    width: 100%;
+    font-family: inherit;
+    padding: 5px 10px;
+}
+.login-content main form button {
+    margin: 10px 0;
+}
+.chatapp {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
+.chatapp-content {
+    width: 100vw;
+    max-width: 500px;
+    height: 100vh;
+    max-height: 600px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.chatapp-content header {
+    width: 100%;
+    height: 50px;
+    padding: 0 1rem;
+    background-color: rgb(143, 70, 216);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatapp-content header button {
+    font-family: inherit;
+    padding: 5px 10px;
+}
+.chatapp-content main {
+    color: black;
+    height: 500px;
+    position: relative;
+}
+.chatapp-content main .main-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.chatapp-content main .main-info .main-info-content {
+    background-color: rgb(168, 80, 255);
+}
+.chatapp-content main .main-info .room-container,
+.chatapp-content main .main-info .user-container {
+    width: 100px;
+    padding: 5px;
+}
+.chatapp-content main .main-info .room-container .room p,
+.chatapp-content main .main-info .user-container p {
+    color: #f5f5f5;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: rgb(143, 70, 216);
+}
+.chatapp-content main .main-info .user-container .users {
+    height: 400px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.chatapp-content main .main-info .user-container .users::-webkit-scrollbar {
+    display: none;
+}
+.chatapp-content main .output {
+    width: 100%;
+    height: 480px;
+    padding: 0 1rem;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.chatapp-content main .output::-webkit-scrollbar {
+    display: none;
+}
+.chatapp-content main .output .message {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: left;
+    background-color: rgb(195, 144, 247);
+}
+.chatapp-content main .output .message .message-main {
+    text-align: right;
+}
+.chatapp-content main .feedback {
+    width: 100%;
+    height: 20px;
+    padding: 0 5px 0 115px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+.chatapp-content form {
+    width: 100%;
+    height: 50px;
+    padding: 0 1rem;
+    background-color: rgb(143, 70, 216);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatapp-content form > * {
+    font-family: inherit;
+    padding: 5px 10px;
+}
+.chatapp-content form input {
+    flex-grow: 1;
+}

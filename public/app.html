@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Socket.io CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.2/socket.io.js" integrity="sha512-YybopSVjZU0fe8TY4YDuQbP5bhwpGBE/T6eBUEZ0usM72IWBfWrgVI13qfX4V2A/W7Hdqnm7PIOYOwP9YHnICw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <title>Chatapp</title>
+</head>
+<body>
+    <div class="chatapp">
+        <div class="chatapp-content">
+            <header>
+                <form action="./index.html">
+                    <h2>Chatapp 💬</h2>
+                    <button id="leave-room">Leave Room</button>
+                </form>
+            </header>
+            <main>
+                <div class="main-info">
+                    <div class="main-info-content">
+                        <div class="room-container">
+                            <div class="room">Room Name
+                                <p>Room 1</p>
+                            </div>
+                        </div>
+                        <div class="user-container">Users
+                            <div class="users">
+                                <p>Ian</p>
+                                <p>Monei</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="output">
+                    </div>
+                </div>
+                <div class="feedback"></div>
+            </main>
+            <form id="chat-form">
+                <input type="text" id="message" placeholder="Your message">
+                <button id="send" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

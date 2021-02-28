@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Socket.io CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.2/socket.io.js" integrity="sha512-YybopSVjZU0fe8TY4YDuQbP5bhwpGBE/T6eBUEZ0usM72IWBfWrgVI13qfX4V2A/W7Hdqnm7PIOYOwP9YHnICw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <title>Chatapp</title>
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-content">
+            <header>
+                <h1>Chatapp 💬</h1>
+            </header>
+            <main>
+                <p>Chat application using socket.io, express.js and node.js</p>
+                <form id="login-form" action="./app.html">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" placeholder="Enter your username" required>
+                    <label for="room">Room</label>
+                    <select name="room" id="room" required>
+                        <option value="" selected hidden>Select a room</option>
+                        <option value="room-1">Room 1</option>
+                        <option value="room-2">Room 2</option>
+                        <option value="room-3">Room 3</option>
+                        <option value="room-4">Room 4</option>
+                    </select>
+                    <button type="submit">Join Chat</button>
+                </form>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
