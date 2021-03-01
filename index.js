@@ -4,8 +4,8 @@ const moment = require('moment');
 
 const app = express();
 const port = 3000;
-const server = app.listen(port, () => {
-    console.log(`Listening at https://localhost:${port}`);
+const server = app.listen(process.env.PORT || port, () => {
+    console.log(`Listening at https://localhost:${port || process.env.PORT}`);
 })
 
 const users = [];
