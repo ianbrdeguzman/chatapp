@@ -112,6 +112,7 @@ body {
 }
 .chatapp-content main .main-info .main-info-content {
     background-color: rgb(168, 80, 255);
+    z-index: 1;
 }
 .chatapp-content main .main-info .room-container,
 .chatapp-content main .main-info .user-container {
@@ -142,6 +143,7 @@ body {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background-color: #ffffff;
 }
 .chatapp-content main .output::-webkit-scrollbar {
     display: none;
@@ -165,6 +167,7 @@ body {
     align-items: center;
     position: absolute;
     bottom: 0;
+    background-color: #ffffff;
 }
 .chatapp-content form {
     width: 100%;
