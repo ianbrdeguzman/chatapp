@@ -185,3 +185,13 @@ body {
 .chatapp-content form input {
     flex-grow: 1;
 }
+footer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+}
+footer p a {
+    font-size: 1.5rem;
+    color: #272727;
+}
