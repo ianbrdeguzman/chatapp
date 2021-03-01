@@ -71,7 +71,6 @@ socket.on('typing', (data) => {
 
 // catch 'welcome' from server
 socket.on('welcome', (data) => {
-    console.log(data);
     // set timeout to welcome user
     setTimeout( () => {
         // create new html
@@ -123,7 +122,6 @@ function notification(data) {
 
 // function to handle current users in the room
 function currentUsers(data) {
-    console.log(data)
     userContainer.innerHTML = '';
     const users = data.users;
     users.forEach( (user) => {
