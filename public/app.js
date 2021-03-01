@@ -1,5 +1,6 @@
 // make connection
-const socket = io.connect('http://localhost:3000/') // change this
+const socket = io();
+//const socket = io.connect('http://localhost:3000/') // change this
 
 // HTML DOM elements
 const output = document.querySelector('.output');
