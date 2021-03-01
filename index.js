@@ -45,7 +45,7 @@ io.on('connection', (socket) => {
             username,
             message: 'has joined the room',
             room: room,
-            users: users,
+            users: users
         });
 
         // broadcast when a user disconnects
@@ -57,6 +57,7 @@ io.on('connection', (socket) => {
                 username,
                 message: 'has left the room',
                 room: room,
+                users: users,
             })
         });
 

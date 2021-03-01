@@ -71,7 +71,7 @@ socket.on('typing', (data) => {
 
 // catch 'welcome' from server
 socket.on('welcome', (data) => {
-    console.log(data.users);
+    console.log(data);
     // set timeout to welcome user
     setTimeout( () => {
         // create new html
@@ -89,28 +89,20 @@ socket.on('welcome', (data) => {
     // change room name 
     roomName.innerHTML = data.room;
     // get username from data
-    const users = data.users;
-    users.forEach( (user) => {
-        const username = `<p>${user.username}</p>`;
-        userContainer.insertAdjacentHTML('beforeend', username);
-    })
+    currentUsers(data);
     // reset feedback inner html
     feedback.innerHTML = '';
 });
 
 // catch 'joined' from server
 socket.on('joined', (data) => {
-    userContainer.innerHTML = '';
-    const users = data.users;
-    users.forEach( (user) => {
-        const username = `<p>${user.username}</p>`;
-        userContainer.insertAdjacentHTML('beforeend', username);
-    })
+    currentUsers(data);
     notification(data);
 });
 
 // catch 'left' from server
 socket.on('left', (data) => {
+    currentUsers(data);
     notification(data);
 });
 
@@ -127,4 +119,17 @@ function notification(data) {
     `
     // insert new html into output container
     output.insertAdjacentHTML('beforeend', html);
+}
+
+// function to handle current users in the room
+function currentUsers(data) {
+    console.log(data)
+    userContainer.innerHTML = '';
+    const users = data.users;
+    users.forEach( (user) => {
+        if(user.room === data.room) {
+            const username = `<p>${user.username}</p>`;
+            userContainer.insertAdjacentHTML('beforeend', username);
+        }
+    })
 }
