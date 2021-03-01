@@ -134,6 +134,7 @@ body {
 .chatapp-content main .main-info .user-container .users::-webkit-scrollbar {
     display: none;
 }
+
 .chatapp-content main .output {
     width: 100%;
     height: 480px;
@@ -149,11 +150,12 @@ body {
     width: 100%;
     padding: 5px;
     margin: 5px 0;
-    text-align: left;
+    text-align: right;
     background-color: rgb(195, 144, 247);
 }
-.chatapp-content main .output .message .message-main {
-    text-align: right;
+.chatapp-content main .output .message .message-header {
+    font-size: 0.6rem;
+    margin-top: 5px;
 }
 .chatapp-content main .feedback {
     width: 100%;

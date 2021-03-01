@@ -1,19 +1,31 @@
 // make connection
-const socket = io.connect('http://localhost:3000/')
+const socket = io.connect('http://localhost:3000/') // change this
 
 // HTML DOM elements
 const output = document.querySelector('.output');
-//const handle = document.querySelector('#handle');
 const message = document.querySelector('#message');
 const form = document.querySelector('#chat-form');
 const feedback = document.querySelector('.feedback');
+const roomName = document.querySelector('.room-name');
+const userContainer = document.querySelector('.users');
+
+// get username and room from URL
+const url = window.location.search;
+const queries = new URLSearchParams(url);
+const username = queries.get('username');
+const room = queries.get('room');
 
 // chat form submit eventlistener
 form.addEventListener('submit', (e) => {
     // prevent the page from reloading
     e.preventDefault();
     // emit message value to the server
-    socket.emit('chat', message.value)
+    if (message.value) {
+        socket.emit('chat', {
+            username,
+            message: message.value,
+        })
+    }
     // reset the message value
     message.value = '';
 });
@@ -21,8 +33,11 @@ form.addEventListener('submit', (e) => {
 // message input text box event listener
 message.addEventListener('keydown', () => {
     // emit message to the server when keydown
-    socket.emit('typing', 'Someone is typing...')
+    socket.emit('typing', `${username} is typing...`)
 })
+
+// emit username and room when user join 
+socket.emit('join', { username, room });
 
 // catch 'chat' from server
 socket.on('chat', (data) => {
@@ -30,11 +45,11 @@ socket.on('chat', (data) => {
     const html = 
     `
     <div class="message">
-        <div class="message-header">
-            <p>Ian 2:40pm</p>
-        </div>
         <div class="message-main">
-            <p>${data}</p>
+            <p>${data.message}</p>
+        </div>
+        <div class="message-header">
+            <p>${data.username} ${data.time}</p>
         </div>
     </div>
     `;
@@ -56,16 +71,41 @@ socket.on('typing', (data) => {
 
 // catch 'welcome' from server
 socket.on('welcome', (data) => {
+    console.log(data.users);
     // set timeout to welcome user
     setTimeout( () => {
-        notification(data);
-    }, 1000)
+        // create new html
+        const roomname =
+        `
+        <div class="message">
+            <div class="message-main">
+                <p>Hello ${data.username} ${data.message}</p>
+            </div>
+        </div>
+        `
+        // insert new html into output container
+        output.insertAdjacentHTML('beforeend', roomname);
+    }, 500)
+    // change room name 
+    roomName.innerHTML = data.room;
+    // get username from data
+    const users = data.users;
+    users.forEach( (user) => {
+        const username = `<p>${user.username}</p>`;
+        userContainer.insertAdjacentHTML('beforeend', username);
+    })
     // reset feedback inner html
     feedback.innerHTML = '';
 });
 
 // catch 'joined' from server
 socket.on('joined', (data) => {
+    userContainer.innerHTML = '';
+    const users = data.users;
+    users.forEach( (user) => {
+        const username = `<p>${user.username}</p>`;
+        userContainer.insertAdjacentHTML('beforeend', username);
+    })
     notification(data);
 });
 
@@ -74,16 +114,17 @@ socket.on('left', (data) => {
     notification(data);
 });
 
-// function to handle all notification
-// welcome, joined, left
+// function to handle notification notification
 function notification(data) {
+    // create new html
     const html =
     `
     <div class="message">
         <div class="message-main">
-            <p>${data}</p>
+            <p>${data.username} ${data.message}</p>
         </div>
     </div>
     `
+    // insert new html into output container
     output.insertAdjacentHTML('beforeend', html);
 }
